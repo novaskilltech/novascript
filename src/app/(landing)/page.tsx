@@ -153,46 +153,84 @@ export default function LandingPage() {
                     </div>
 
                     <h1 style={{
-                        fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: 800, letterSpacing: '-0.04em',
-                        lineHeight: 1.05, maxWidth: 820,
-                        background: 'linear-gradient(135deg, #FFFFFF 0%, #6C5CE7 50%, #2D3436 100%)',
-                        WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-                        marginBottom: 'var(--space-6)',
-                        textShadow: '0 2px 10px rgba(0,0,0,0.1)',
+                        fontSize: 'clamp(2.5rem, 8vw, 6rem)', fontWeight: 800, letterSpacing: '-0.05em',
+                        lineHeight: 1, maxWidth: 850,
+                        color: '#FFFFFF',
+                        marginBottom: 'var(--space-8)',
+                        textShadow: '0 10px 30px rgba(0,0,0,0.5)',
                     }}>
                         Le Studio de Prompts IA pour Créateurs
                     </h1>
 
-                    <p style={{ fontSize: 'var(--text-lg)', color: 'var(--text-secondary)', maxWidth: 560, lineHeight: 1.7, marginBottom: 'var(--space-8)' }}>
-                        Écris, teste, versione et exporte tes prompts Gemini. Local-first, zéro friction, résultats immédiats.
+                    <p style={{ fontSize: 'var(--text-xl)', color: 'rgba(255,255,255,0.7)', maxWidth: 620, lineHeight: 1.6, marginBottom: 'var(--space-10)', fontWeight: 400 }}>
+                        Écris, teste et exporte tes prompts Gemini. <br />
+                        <span style={{ color: 'rgba(255,255,255,0.9)' }}>Local-first, zéro friction, résultats immédiats.</span>
                     </p>
 
-                    <div style={{ display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap', justifyContent: 'center' }}>
-                        <Link href="/dashboard" className="btn btn-primary btn-lg" style={{ fontSize: '1rem', padding: '14px 32px' }}>
+                    <div style={{ display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '80px' }}>
+                        <Link href="/dashboard" className="btn btn-primary btn-lg" style={{
+                            fontSize: '1.1rem', padding: '16px 48px',
+                            background: '#1F29F0', borderRadius: '12px',
+                            boxShadow: '0 10px 30px rgba(31,41,240,0.4)',
+                            border: 'none'
+                        }}>
                             Ouvrir l'app →
                         </Link>
-                        <a href="#pricing" className="btn btn-secondary btn-lg" style={{ fontSize: '1rem', padding: '14px 32px' }}>
+                        <a href="#pricing" className="btn btn-lg" style={{
+                            fontSize: '1.1rem', padding: '16px 48px',
+                            background: 'rgba(15,15,30,0.6)', color: 'white',
+                            border: '1px solid rgba(255,255,255,0.1)',
+                            borderRadius: '12px',
+                            backdropFilter: 'blur(10px)'
+                        }}>
                             Voir les prix
                         </a>
                     </div>
 
-                    {/* Preview card */}
-                    <div style={{
-                        marginTop: 'var(--space-12)', width: '100%', maxWidth: 780,
-                        background: 'var(--bg-card)', border: '1px solid var(--border-color)',
-                        borderRadius: 'var(--radius-xl)', padding: 'var(--space-6)',
-                        backdropFilter: 'blur(12px)', boxShadow: '0 40px 80px rgba(0,0,0,0.4), 0 0 60px rgba(108,92,231,0.1)',
-                    }}>
-                        <div style={{ display: 'flex', gap: 'var(--space-2)', marginBottom: 'var(--space-4)' }}>
-                            {['#ff5f57', '#febc2e', '#28c840'].map(c => <div key={c} style={{ width: 12, height: 12, borderRadius: '50%', background: c }} />)}
+                    {/* Preview card area */}
+                    <div style={{ width: '100%', maxWidth: 820, position: 'relative' }}>
+                        <div style={{
+                            background: 'rgba(13,13,28,0.8)', border: '1px solid rgba(255,255,255,0.08)',
+                            borderRadius: '16px', padding: '0',
+                            backdropFilter: 'blur(20px)', boxShadow: '0 50px 100px rgba(0,0,0,0.6)',
+                            overflow: 'hidden'
+                        }}>
+                            <div style={{
+                                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                                padding: '12px 20px', background: 'rgba(255,255,255,0.03)',
+                                borderBottom: '1px solid rgba(255,255,255,0.05)'
+                            }}>
+                                <div style={{ display: 'flex', gap: '8px' }}>
+                                    {['#ff5f57', '#febc2e', '#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
+                                </div>
+                                <span style={{ fontSize: '10px', fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.3)', letterSpacing: '2px', fontWeight: 600 }}>PROMPT_TEMPLATE.TS</span>
+                                <div style={{ width: 40 }} />
+                            </div>
+
+                            <div style={{
+                                padding: '32px 40px', fontFamily: 'var(--font-mono)', fontSize: '15px',
+                                color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, textAlign: 'left'
+                            }}>
+                                <span style={{ color: 'rgba(255,255,255,0.2)' }}>// Prompt Template for TikTok Creators</span><br /><br />
+                                Write a <span style={{ color: '#00D2D3', background: 'rgba(0,210,211,0.08)', padding: '2px 8px', borderRadius: 6, border: '1px solid rgba(0,210,211,0.15)' }}>{'{tone}'}</span> script about <span style={{ color: '#00D2D3', background: 'rgba(0,210,211,0.08)', padding: '2px 8px', borderRadius: 6, border: '1px solid rgba(0,210,211,0.15)' }}>{'{topic}'}</span> for TikTok.<br /><br />
+                                Target audience: <span style={{ color: '#6C5CE7', background: 'rgba(108,92,231,0.08)', padding: '2px 8px', borderRadius: 6, border: '1px solid rgba(108,92,231,0.15)' }}>{'{audience}'}</span>.<br />
+                                Duration: <span style={{ color: '#FF7675', background: 'rgba(255,118,117,0.08)', padding: '2px 8px', borderRadius: 6, border: '1px solid rgba(255,118,117,0.15)' }}>{'{duration}'}</span>.
+                            </div>
                         </div>
-                        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 2, textAlign: 'left' }}>
-                            <span style={{ color: 'var(--text-muted)' }}>// Prompt Template</span><br />
-                            Write a <span style={{ color: 'var(--nova-accent-light)', background: 'rgba(0,210,211,0.1)', padding: '1px 6px', borderRadius: 4 }}>{'{tone}'}</span> script about <span style={{ color: 'var(--nova-accent-light)', background: 'rgba(0,210,211,0.1)', padding: '1px 6px', borderRadius: 4 }}>{'{topic}'}</span> for TikTok.<br />
-                            Target audience: <span style={{ color: 'var(--nova-accent-light)', background: 'rgba(0,210,211,0.1)', padding: '1px 6px', borderRadius: 4 }}>{'{audience}'}</span>. Duration: <span style={{ color: 'var(--nova-accent-light)', background: 'rgba(0,210,211,0.1)', padding: '1px 6px', borderRadius: 4 }}>{'{duration}'}</span>.<br /><br />
-                            <div style={{ display: 'flex', gap: 'var(--space-3)', alignItems: 'center' }}>
-                                <div style={{ padding: '8px 20px', background: 'linear-gradient(135deg, #00B894, #00A884)', borderRadius: 'var(--radius-md)', color: 'white', fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: 'var(--text-sm)', cursor: 'pointer' }}>▶ Run with Gemini</div>
-                                <span style={{ color: 'var(--text-muted)', fontSize: 'var(--text-xs)' }}>⚡ gemini-2.0-flash · 842ms</span>
+
+                        {/* Sub-benefits */}
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', marginTop: '60px', textAlign: 'left' }}>
+                            <div>
+                                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'white', marginBottom: '8px' }}>Local-first</h3>
+                                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>
+                                    Tes données restent sur ton appareil pour une vitesse maximale.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'white', marginBottom: '8px' }}>Export Rapide</h3>
+                                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>
+                                    Copie-colle vers Gemini ou exporte en JSON en un clic.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -241,11 +279,6 @@ export default function LandingPage() {
                                 }}>{step.num}</div>
                                 <h3 style={{ fontWeight: 700, marginBottom: 'var(--space-2)' }}>{step.title}</h3>
                                 <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-sm)', lineHeight: 1.6 }}>{step.desc}</p>
-                                {i < STEPS.length - 1 && (
-                                    <div style={{
-                                        display: 'none',
-                                    }} />
-                                )}
                             </div>
                         ))}
                     </div>
