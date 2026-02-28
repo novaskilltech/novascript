@@ -84,6 +84,12 @@ const TEMPLATES = [
     { icon: '💼', category: 'Pro', title: 'Post LinkedIn', desc: 'Format storytelling, expertise + question finale' },
     { icon: '🛍️', category: 'E-com', title: 'Description Produit', desc: 'Bénéfices émotionnels, features, social proof' },
     { icon: '📱', category: 'Vidéo', title: 'Script Réels / Shorts', desc: '30-60s, hook 3s, visuel dynamique, CTA fort' },
+    { icon: '📢', category: 'Ads', title: 'Ads Meta / Google', desc: 'Hooks accrocheurs et copy haute conversion pour tes pubs' },
+    { icon: '🎙️', category: 'Podcast', title: 'Plan Podcast', desc: "Structure d'épisode, questions clés et intro percutante" },
+    { icon: '🧲', category: 'Marketing', title: 'Lead Magnet', desc: 'Structure de PDF/Guide offert pour capturer des emails' },
+    { icon: '🌐', category: 'Web', title: 'Landing Page Copy', desc: 'Structure de page de vente, titres H1 et sections bénéfices' },
+    { icon: '🤝', category: 'Support', title: 'Réponse Support', desc: 'Réponses empathiques et professionnelles aux clients' },
+    { icon: '🎓', category: 'Edu', title: 'Plan de Cours', desc: 'Syllabus, modules et objectifs pédagogiques clairs' },
 ];
 
 export default function LandingPage() {
@@ -309,7 +315,7 @@ export default function LandingPage() {
                             </div>
                             <div>
                                 <h3 style={{ fontWeight: 700, marginBottom: 'var(--space-1)', fontSize: 'var(--text-base)', color: 'white' }}>{t.title}</h3>
-                                <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', lineHeight: 1.5, minHeight: '3em' }}>{t.desc}</p>
+                                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'var(--text-sm)', lineHeight: 1.5, minHeight: '3em' }}>{t.desc}</p>
                             </div>
                             <Link href="/dashboard" style={{
                                 marginTop: 'auto',

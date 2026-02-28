@@ -191,6 +191,125 @@ Format obligatoire :
 
 Indications caméra : plan suggéré, texte à l'écran, transitions.`,
     },
+    {
+        emoji: '📢',
+        title: 'Ads Meta / Google',
+        desc: 'Hooks accrocheurs et copy haute conversion pour tes pubs',
+        color: 'rgba(52,152,219,0.18)',
+        border: 'rgba(52,152,219,0.3)',
+        tag: 'Ads',
+        prompt: `Tu es un media buyer et copywriter spécialisé en publicité payante (Meta/Google Ads).
+
+Crée 3 variations de textes publicitaires pour : {product_service}
+Objectif : {goal} (Ventes, Leads, Trafic)
+Cible : {audience}
+
+Pour chaque variation, fournis :
+1. LE HOOK (Accroche) — 1ère ligne impactante
+2. LE CORPS (Body copy) — bénéfices, transformation, preuve sociale
+3. LE CTA — appel à l'action clair et pressant
+
+Ton : {tone}. Respecte les limitations de caractères des plateformes.`,
+    },
+    {
+        emoji: '🎙️',
+        title: 'Plan Podcast',
+        desc: "Structure d'épisode, questions clés et intro percutante",
+        color: 'rgba(231,76,60,0.18)',
+        border: 'rgba(231,76,60,0.3)',
+        tag: 'Podcast',
+        prompt: `Tu es un producteur de podcast à succès.
+
+Prépare la structure d'un épisode sur : {topic}
+Invité (si applicable) : {guest}
+Format : {format} (Solo, Interview, Table ronde)
+
+Contenu demandé :
+- Titre accrocheur et intrigant
+- Intro Scriptée (Hook + problématique + promesse de l'épisode)
+- Plan détaillé (Points clés à aborder, transitions)
+- Questions d'or (3-5 questions percutantes pour l'invité)
+- Conclusion & Appel à l'action (Newsletter, Review, etc.)`,
+    },
+    {
+        emoji: '🧲',
+        title: 'Lead Magnet',
+        desc: 'Structure de PDF/Guide offert pour capturer des emails',
+        color: 'rgba(46,204,113,0.18)',
+        border: 'rgba(46,204,113,0.3)',
+        tag: 'Marketing',
+        prompt: `Tu es un expert en inbound marketing et conversion.
+
+Conçois la structure d'un Lead Magnet (aimant à clients) sur : {topic}
+Format : {magnet_format} (Ebook, Checklist, Template, Mini-cours)
+Cible : {audience}
+
+Détails requis :
+- Titre irrésistible (Promesse forte + Résultat immédiat)
+- Sommaire structuré (5-7 parties)
+- Points de douleur adressés
+- CTA final vers : {next_step} (Appel offrer, Produit payant, etc.)`,
+    },
+    {
+        emoji: '🌐',
+        title: 'Landing Page Copy',
+        desc: 'Structure de page de vente, titres H1 et sections bénéfices',
+        color: 'rgba(241,196,15,0.18)',
+        border: 'rgba(241,196,15,0.3)',
+        tag: 'Web',
+        prompt: `Tu es un copywriter spécialisé en Landing Pages haute conversion.
+
+Rédige le contenu d'une page de vente pour : {product_service}
+Proposition de valeur : {uvp}
+Cible : {audience}
+
+Structure demandée :
+- HERO : Titre H1 percutant + Sous-titre + Texte du bouton
+- SECTION PROBLÈME : Agitation de la douleur actuelle de l'utilisateur
+- SECTION SOLUTION : Présentation du produit comme le remède
+- BÉNÉFICES : 3 points clés avec focus sur la transformation
+- PREUVE SOCIALE : Emplacement pour témoignages
+- FAQ : Réponse aux 3 objections majeures
+- FOOTER : Rappel du CTA final`,
+    },
+    {
+        emoji: '🤝',
+        title: 'Réponse Support',
+        desc: 'Réponses empathiques et professionnelles aux clients',
+        color: 'rgba(149,165,166,0.18)',
+        border: 'rgba(149,165,166,0.3)',
+        tag: 'Support',
+        prompt: `Tu es un expert en service client et Customer Success.
+
+Rédige une réponse professionnelle et empathique pour : {customer_issue}
+Ton souhaité : {tone} (Ferme mais poli, Désolé et pro-actif, Amical)
+
+Structure de la réponse :
+- Salutation personnalisée
+- Validation du problème (empathie)
+- Explication/Solution proposée
+- Prochaine étape claire
+- Formule de politesse adaptée`,
+    },
+    {
+        emoji: '🎓',
+        title: 'Plan de Cours',
+        desc: 'Syllabus, modules et objectifs pédagogiques clairs',
+        color: 'rgba(52,73,94,0.18)',
+        border: 'rgba(52,73,94,0.3)',
+        tag: 'Edu',
+        prompt: `Tu es un ingénieur pédagogique et concepteur de formations.
+
+Crée le syllabus d'un cours/formation sur : {course_topic}
+Niveau : {level} (Débutant, Intermédiaire, Avancé)
+Durée visée : {duration}
+
+Éléments demandés :
+- Objectifs pédagogiques (Ce que l'élève saura faire à la fin)
+- Plan des modules (3-5 modules avec titres et sous-points)
+- Exercice pratique ou quiz suggéré pour chaque module
+- Ressource complémentaire recommandée`,
+    },
 ];
 
 /* ── TAG COLORS ──────────────────────────────────────────── */
@@ -201,6 +320,12 @@ const TAG_COLORS: Record<string, string> = {
     SEO: 'rgba(0,210,150,0.18)',
     Pro: 'rgba(0,120,255,0.18)',
     'E-com': 'rgba(255,200,0,0.18)',
+    Ads: 'rgba(52,152,219,0.18)',
+    Podcast: 'rgba(231,76,60,0.18)',
+    Marketing: 'rgba(46,204,113,0.18)',
+    Web: 'rgba(241,196,15,0.18)',
+    Support: 'rgba(149,165,166,0.18)',
+    Edu: 'rgba(52,73,94,0.18)',
 };
 
 /* ── COMPONENT ───────────────────────────────────────────── */
@@ -555,7 +680,7 @@ function TemplateCard({ t, onUse }: { t: typeof TEMPLATES[0]; onUse: () => void 
             </div>
 
             <div style={{ fontWeight: 700, fontSize: 'var(--text-base)', marginBottom: 4, color: 'var(--text-primary)' }}>{t.title}</div>
-            <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: 'var(--space-4)' }}>{t.desc}</div>
+            <div style={{ fontSize: 'var(--text-xs)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.5, marginBottom: 'var(--space-4)' }}>{t.desc}</div>
 
             <button
                 className="btn btn-secondary btn-sm"
