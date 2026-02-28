@@ -75,6 +75,17 @@ const PLANS = [
     },
 ];
 
+const TEMPLATES = [
+    { icon: '🎬', category: 'Social', title: 'Script TikTok', desc: 'Accroches, transitions et CTA en {duration}s' },
+    { icon: '📺', category: 'Vidéo', title: 'Script YouTube', desc: 'Intro hook, structure narration, outro CTA' },
+    { icon: '📧', category: 'Email', title: 'Newsletter / Email', desc: 'Histoire engageante + valeur + CTA irrésistible' },
+    { icon: '🐦', category: 'Social', title: 'Thread X / Twitter', desc: '8-10 tweets, hook viral, engagement maximal' },
+    { icon: '📝', category: 'SEO', title: 'Article de Blog SEO', desc: 'Structure H1/H2/H3, mots-clés, méta-description' },
+    { icon: '💼', category: 'Pro', title: 'Post LinkedIn', desc: 'Format storytelling, expertise + question finale' },
+    { icon: '🛍️', category: 'E-com', title: 'Description Produit', desc: 'Bénéfices émotionnels, features, social proof' },
+    { icon: '📱', category: 'Vidéo', title: 'Script Réels / Shorts', desc: '30-60s, hook 3s, visuel dynamique, CTA fort' },
+];
+
 export default function LandingPage() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -102,6 +113,7 @@ export default function LandingPage() {
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-6)' }}>
                     <a href="#features" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: 'var(--text-sm)', fontWeight: 500 }}>Features</a>
+                    <a href="#templates" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: 'var(--text-sm)', fontWeight: 500 }}>Modèles</a>
                     <a href="#how" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: 'var(--text-sm)', fontWeight: 500 }}>Comment ça marche</a>
                     <a href="#pricing" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: 'var(--text-sm)', fontWeight: 500 }}>Pricing</a>
                     <Link href="/dashboard" className="btn btn-primary btn-sm">Ouvrir l'app →</Link>
@@ -253,6 +265,75 @@ export default function LandingPage() {
                             <h3 style={{ fontWeight: 700, marginBottom: 'var(--space-2)', fontSize: 'var(--text-base)' }}>{f.title}</h3>
                             <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--text-sm)', lineHeight: 1.6 }}>{f.desc}</p>
                             <div style={{ position: 'absolute', top: 0, right: 0, width: 80, height: 80, background: 'radial-gradient(circle, rgba(108,92,231,0.1) 0%, transparent 70%)' }} />
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* ── TEMPLATES GALLERY ── */}
+            <section id="templates" style={{ padding: '80px var(--space-8)', maxWidth: 1200, margin: '0 auto' }}>
+                <div style={{ textAlign: 'center', marginBottom: 'var(--space-10)' }}>
+                    <p style={{ color: 'var(--nova-accent)', fontWeight: 600, fontSize: 'var(--text-sm)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 'var(--space-3)' }}>Modèles</p>
+                    <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.03em' }}>
+                        Prêt pour ton prochain viral ?
+                    </h2>
+                    <p style={{ color: 'var(--text-secondary)', marginTop: 'var(--space-3)', fontSize: 'var(--text-base)' }}>
+                        Des templates optimisés pour chaque plateforme, prêts à être personnalisés.
+                    </p>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 'var(--space-5)' }}>
+                    {TEMPLATES.map((t) => (
+                        <div key={t.title} className="card" style={{
+                            padding: 'var(--space-6)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 'var(--space-4)',
+                            transition: 'transform 0.3s ease, border-color 0.3s ease',
+                            cursor: 'pointer',
+                            position: 'relative',
+                            overflow: 'hidden'
+                        }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                <div style={{ fontSize: '1.8rem' }}>{t.icon}</div>
+                                <span style={{
+                                    fontSize: '10px',
+                                    fontWeight: 700,
+                                    textTransform: 'uppercase',
+                                    padding: '4px 10px',
+                                    borderRadius: 'var(--radius-full)',
+                                    background: 'rgba(255,255,255,0.05)',
+                                    color: 'var(--text-secondary)',
+                                    border: '1px solid rgba(255,255,255,0.1)'
+                                }}>{t.category}</span>
+                            </div>
+                            <div>
+                                <h3 style={{ fontWeight: 700, marginBottom: 'var(--space-1)', fontSize: 'var(--text-base)', color: 'white' }}>{t.title}</h3>
+                                <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', lineHeight: 1.5, minHeight: '3em' }}>{t.desc}</p>
+                            </div>
+                            <Link href="/dashboard" style={{
+                                marginTop: 'auto',
+                                fontSize: 'var(--text-xs)',
+                                fontWeight: 600,
+                                color: 'var(--nova-primary-light)',
+                                textDecoration: 'none',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '4px'
+                            }}>
+                                Utiliser ce template →
+                            </Link>
+
+                            {/* Background decoration */}
+                            <div style={{
+                                position: 'absolute',
+                                bottom: -20,
+                                right: -20,
+                                width: 100,
+                                height: 100,
+                                background: 'radial-gradient(circle, rgba(108,92,231,0.05) 0%, transparent 70%)',
+                                zIndex: 0
+                            }} />
                         </div>
                     ))}
                 </div>
